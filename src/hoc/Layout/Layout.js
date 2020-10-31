@@ -22,7 +22,7 @@ class Layout extends Component {
 	accounts = null;
 
 	handleStateChange (state) {
-		this.setState({menuOpen: state.isOpen})  
+		this.setState({menuOpen: state.isOpen})
 	}
 
 	sidebarClosedHandler = () => {
@@ -53,7 +53,7 @@ class Layout extends Component {
 	}
 
 	async componentWillMount () {
-		this.fm = new Fortmatic(process.env.REACT_APP_FORTMATIC_API_KEY);
+		this.fm = new Fortmatic('pk_test_A062438D18DCD33E');
 		// Post EIP-1102 update which MetaMask no longer injects web3
 		if (window.ethereum) {
 			// Use MetaMask provider
@@ -62,7 +62,7 @@ class Layout extends Component {
 			// Use Fortmatic provider
 			window.web3 = new Web3(this.fm.getProvider());
 		}
-		
+
 		// Legacy dApp browsers which web3 is still being injected
 		if (typeof window.web3 !== 'undefined') {
 			// Use injected provider
@@ -82,7 +82,7 @@ class Layout extends Component {
 	render () {
 		return (
 			<div className={classes.Layout}>
-				<Toolbar 
+				<Toolbar
 					toggleSidebar={this.sidebarToggleHandler}
 					loginClick={(web3, fm) => this.loginHandler(web3, fm)}
 					address={this.props.address}
