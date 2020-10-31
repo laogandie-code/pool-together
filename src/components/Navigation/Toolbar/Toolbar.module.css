@@ -1,0 +1,33 @@
+.Toolbar {
+	height: 75px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+	box-sizing: border-box;
+	z-index: 90;
+	grid-area: h;
+}
+
+.Logo {
+	height: 80%;
+}
+
+.DesktopOnly {
+	width: 450px;
+	padding-top: 25px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-areas: "n w";
+}
+
+.DesktopOnly a {
+	float: left;
+}
+
+@media (max-width: 499px) {
+	.DesktopOnly {
+		display: none;
+	}
+}
